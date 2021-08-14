@@ -1,0 +1,1 @@
+docker exec -it c91e7963b081 kafka-topics --list --bootstrap-server localhost:9092

@@ -16,7 +16,7 @@ const user = () => ({
 })
 
 const run = async () => {
-  const users = Array.from({ length: 100}).map(user)
+  const users = Array.from({ length: 500}).map(user)
   
   const orders = users.reduce((acc, {id}) => {
     const userOrders = Array.from({length: 10}).map(() => order(id))
@@ -26,9 +26,12 @@ const run = async () => {
     ]
   }, [])
 
+  const usersRaw = users.map(JSON.stringify).join('\n')
+  const ordersRaw = orders.map(JSON.stringify).join('\n')
+
   await Promise.all([
-    fs.promises.writeFile('./users.json', JSON.stringify(users)),
-    fs.promises.writeFile('./orders.json', JSON.stringify(orders))
+    fs.promises.writeFile('./users', usersRaw),
+    fs.promises.writeFile('./orders', ordersRaw)
   ])
 }
 

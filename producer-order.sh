@@ -1,0 +1,1 @@
+head -n 500 orders | kafkacat -b localhost:9092 -P -t orders

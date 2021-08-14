@@ -1,0 +1,1 @@
+kafkacat -b localhost:9092 -C -t users

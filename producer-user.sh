@@ -1,0 +1,1 @@
+head -n 500 users | kafkacat -b localhost:9092 -P -t users
